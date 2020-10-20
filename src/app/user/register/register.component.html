@@ -18,7 +18,7 @@
             <mat-icon class="maticon" matSuffix class="maticon">perm_identity</mat-icon>
           </mat-form-field>
           <mat-error *ngIf="Username.invalid && Username.errors.maxlength">
-            <span class="small">*Username should less than 30 character!</span>
+            <span class ="small text-warning">*Username should less than 30 character!</span>
           </mat-error>
         </td>
       </tr>
@@ -30,7 +30,7 @@
             <mat-icon matSuffix class="maticon">mail</mat-icon>
           </mat-form-field>
           <mat-error *ngIf="Email.invalid && Email.errors.email">
-            <span class="small">*Invalid Email</span>
+            <span class ="small text-warning">*Invalid Email</span>
           </mat-error>
         </td>
       </tr>
@@ -44,7 +44,7 @@
             </button>
           </mat-form-field>
           <mat-error *ngIf="Password.invalid && Password.errors.minlength">
-            <span class="small">*Password must at least 6 characters!</span>
+            <span class ="small text-warning">*Password must at least 6 characters!</span>
           </mat-error>
         </td>
       </tr>
@@ -58,7 +58,7 @@
           </button>
         </mat-form-field>
         <mat-error *ngIf="Repeadpassword.invalid && Repeadpassword.errors.passwordMatch">
-          <span class="small">*Password does not match</span>
+          <span class ="small text-warning">*Password does not match</span>
         </mat-error>
       </td>
     </tr>
@@ -67,6 +67,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="warn" (click)="register()" [disabled]="!regForm.valid">Register</button>
-    <span class="small" class="text-primary">Already have an account &nbsp; <a class="text-danger" [routerLink]="['/user/login']">  login </a>  &nbsp; here. </span>
+    <span class="text-primary">Already have an account &nbsp; <a class="text-danger" [routerLink]="['/user/login']">  login </a>  &nbsp; here. </span>
 </mat-card-actions>
 </mat-card>
