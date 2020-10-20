@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserService {
-  private base_Url = 'http://localhost:8080/';
+  // private base_Url = 'http://localhost:8080/';
+  public base_Url = '';
 
   constructor(private http$: HttpClient) {}
 
