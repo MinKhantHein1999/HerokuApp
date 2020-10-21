@@ -1,49 +1,54 @@
-<mat-card class="login-card">
-  <mat-card-header>
-    <mat-card-title><h1 class="font-weight-bold">Login Form</h1></mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
+<div class="container">
+  <div class="col-md-12 col-sm-12">
+    <mat-card class="login-card">
+      <mat-card-header>
+        <mat-card-title><h1 class="font-weight-bold">Login Form</h1></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
 
-    <div class="form-group  show-hide-message">
-      <div [ngClass] = "messageClass">
-        {{message}}
-      </div>
-    </div>
+        <div class="form-group  show-hide-message">
+          <div [ngClass] = "messageClass">
+            {{message}}
+          </div>
+        </div>
 
-    <form action="" [formGroup]="loginForm">
-      <table cellspacing = "0" class="fullwidth">
+        <form action="" [formGroup]="loginForm">
+          <table cellspacing = "0" class="fullwidth">
 
-        <tr>
-          <td>
-          <mat-form-field class="fullwidth">
-            <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
-            <mat-icon matSuffix class="maticon">mail</mat-icon>
-          </mat-form-field>
-          <mat-error *ngIf="Email.invalid && Email.errors.email">
-            <span class="small text-warning">*Invalid Email</span>
-          </mat-error>
-        </td>
-      </tr>
-        <tr>
-          <td>
-          <mat-form-field class="fullwidth">
-            <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName ="password" name="password" required>
-            <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-          </mat-form-field>
-          <mat-error *ngIf="Password.invalid && Password.errors.minlength">
-            <span class="small text-warning">*Password must at least 6 characters!</span>
-          </mat-error>
-        </td>
-      </tr>
+            <tr>
+              <td>
+              <mat-form-field class="fullwidth">
+                <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
+                <mat-icon matSuffix class="maticon">mail</mat-icon>
+              </mat-form-field>
+              <mat-error *ngIf="Email.invalid && Email.errors.email">
+                <span class="small text-warning">*Invalid Email</span>
+              </mat-error>
+            </td>
+          </tr>
+            <tr>
+              <td>
+              <mat-form-field class="fullwidth">
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName ="password" name="password" required>
+                <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              </mat-form-field>
+              <mat-error *ngIf="Password.invalid && Password.errors.minlength">
+                <span class="small text-warning">*Password must at least 6 characters!</span>
+              </mat-error>
+            </td>
+          </tr>
 
-      </table>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
-    <span class="text-primary">If you don't have an account &nbsp; <a class="text-danger" [routerLink]="['/user/register']">  register </a>  &nbsp; here. </span>
-</mat-card-actions>
-</mat-card>
+          </table>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+        <span class="text-primary">If you don't have an account &nbsp; <a class="text-danger" [routerLink]="['/user/register']">  register </a>  &nbsp; here. </span>
+    </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

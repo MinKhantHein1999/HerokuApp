@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -53,7 +54,7 @@ export class RegisterComponent implements OnInit {
       : null;
   }
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
   register() {
@@ -65,6 +66,7 @@ export class RegisterComponent implements OnInit {
         } else {
           console.log(data);
           this.regForm.reset();
+          this.router.navigate(['/listing']);
         }
       });
     }
