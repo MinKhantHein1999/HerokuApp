@@ -3,7 +3,7 @@ const Listing = require ('../model/Listing');
 const verify = require("../router/verify");
 
 // create
-router.post("/",verify, async (req, res) => {
+router.post("/", async (req, res) => {
   const createlisting = new Listing({
     title: req.body.title,
     price: req.body.price,
@@ -41,7 +41,7 @@ router.get("/:listingId", async (req, res) => {
 });
 
 // update data
-router.put("/:updateId",verify, async (req, res) => {
+router.put("/:updateId", async (req, res) => {
   try {
     const data = {
       title: req.body.title,
@@ -60,7 +60,7 @@ router.put("/:updateId",verify, async (req, res) => {
 });
 
 // delete data
-router.delete("/:deleteId",verify, async (req, res) => {
+router.delete("/:deleteId", async (req, res) => {
   try {
     const deletedata = await Listing.findByIdAndRemove(req.params.deleteId);
     res.send(deletedata);
