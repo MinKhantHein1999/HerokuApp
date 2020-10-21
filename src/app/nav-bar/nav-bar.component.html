@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand ml-4" href="#">SDLC CRUD APPLICATION</a>
+  <a class="navbar-brand" href="#">SDLC CRUD APPLICATION</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,20 +9,20 @@
 
     </ul> -->
     <ul class="navbar-nav ml-auto mr-4">
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" routerLink="listing">All Listing</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="userService.LoggedIn()">
         <a class="nav-link" routerLink="listing/add-listing">Add-Listing</a>
-      </li> -->
-      <li class="nav-item">
+      </li>
+      <li class="nav-item" *ngIf="!userService.LoggedIn()">
         <a class="nav-link" routerLink = "user/login">Login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!userService.LoggedIn()">
         <a class="nav-link" routerLink = "user/register">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer;">Logout</a>
+      <li class="nav-item" *ngIf="userService.LoggedIn()">
+        <a class="nav-link" style="cursor: pointer;" (click)="userService.LogOut()">Logout</a>
       </li>
     </ul>
   </div>

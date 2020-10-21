@@ -43,7 +43,7 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="warn" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    <button mat-raised-button color="primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
     <span class="text-primary">If you don't have an account &nbsp; <a class="text-danger" [routerLink]="['/user/register']">  register </a>  &nbsp; here. </span>
 </mat-card-actions>
 </mat-card>

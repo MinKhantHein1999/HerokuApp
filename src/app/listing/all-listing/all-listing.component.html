@@ -1,0 +1,16 @@
+<div class="container my-3">
+  <div class="row" *ngIf="listing$ | async as listings">
+    <div class="col-md-4" *ngFor="let listing of listings">
+      <mat-card class="example-card mb-5 text-center">
+        <mat-card-content >
+          <h1> {{listing.title}}</h1>
+          <h4>Price : {{listing.price}} | Locality : {{listing.locality}}</h4>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [routerLink]="listing._id" class="mb-2 btn btn-block rounded-pill" style="background: chocolate;">View Details</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

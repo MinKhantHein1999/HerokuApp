@@ -1,0 +1,63 @@
+<mat-card class="example-card" style="margin: 40px auto;">
+  <mat-card-header>
+    <mat-card-title>Add Listing</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="listingForm" (ngSubmit)="newListing()" class="form mt-3">
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Title</div>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroup"
+          formControlName="title"
+        />
+      </div>
+
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Price</div>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroup"
+          formControlName="price"
+        />
+      </div>
+
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Locality</div>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroup"
+          formControlName="locality"
+        />
+      </div>
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Details</div>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroup"
+          formControlName="details"
+        />
+      </div>
+      <button
+        type="submit"
+        mat-raised-button
+        class="btn btn-success mt-3 btn-block rounded-pill"
+        [disabled]="!listingForm.valid"
+      >
+        Add Listing
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
