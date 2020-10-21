@@ -1,76 +1,74 @@
-<div class="container">
-  <div class="col-md-12 col-sm-12">
-    <mat-card class="register-card">
-      <mat-card-header>
-        <mat-card-title> <h1 class="font-weight-bold">Register Form</h1></mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form action="" [formGroup]="regForm">
-          <div class="form-group  show-hide-message">
-            <div [ngClass] = "messageClass">
-              {{message}}
-            </div>
+<div class="container-fluid">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title> <h1 class="font-weight-bold">Register Form</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form action="" [formGroup]="regForm">
+        <div class="form-group  show-hide-message">
+          <div [ngClass] = "messageClass">
+            {{message}}
           </div>
-          <table cellspacing = "0" class="fullwidth">
+        </div>
+        <table cellspacing = "0" class="fullwidth">
 
-            <tr>
-              <td>
-              <mat-form-field class="fullwidth">
-                <input type="text" matInput placeholder="User Name" formControlName ="username" name="username" required>
-                <mat-icon class="maticon" matSuffix class="maticon">perm_identity</mat-icon>
-              </mat-form-field>
-              <mat-error *ngIf="Username.invalid && Username.errors.maxlength">
-                <span class ="small text-warning">*Username should less than 30 character!</span>
-              </mat-error>
-            </td>
-          </tr>
-
-            <tr>
-              <td>
-              <mat-form-field class="fullwidth">
-                <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
-                <mat-icon matSuffix class="maticon">mail</mat-icon>
-              </mat-form-field>
-              <mat-error *ngIf="Email.invalid && Email.errors.email">
-                <span class ="small text-warning">*Invalid Email</span>
-              </mat-error>
-            </td>
-          </tr>
-            <tr>
-              <td>
-              <mat-form-field class="fullwidth">
-                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName ="password" name="password" required>
-                <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-              </mat-form-field>
-              <mat-error *ngIf="Password.invalid && Password.errors.minlength">
-                <span class ="small text-warning">*Password must at least 6 characters!</span>
-              </mat-error>
-            </td>
-          </tr>
           <tr>
             <td>
             <mat-form-field class="fullwidth">
-              <input [type]="hide ? 'password' : 'text'" matInput placeholder="Repead Password" formControlName ="repeadpassword" name="repeadpassword" required>
+              <input type="text" matInput placeholder="User Name" formControlName ="username" name="username" required>
+              <mat-icon class="maticon" matSuffix class="maticon">perm_identity</mat-icon>
+            </mat-form-field>
+            <mat-error *ngIf="Username.invalid && Username.errors.maxlength">
+              <span class ="small text-warning">*Username should less than 30 character!</span>
+            </mat-error>
+          </td>
+        </tr>
+
+          <tr>
+            <td>
+            <mat-form-field class="fullwidth">
+              <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
+              <mat-icon matSuffix class="maticon">mail</mat-icon>
+            </mat-form-field>
+            <mat-error *ngIf="Email.invalid && Email.errors.email">
+              <span class ="small text-warning">*Invalid Email</span>
+            </mat-error>
+          </td>
+        </tr>
+          <tr>
+            <td>
+            <mat-form-field class="fullwidth">
+              <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName ="password" name="password" required>
               <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
-            <mat-error *ngIf="Repeadpassword.invalid && Repeadpassword.errors.passwordMatch">
-              <span class ="small text-warning">*Password does not match</span>
+            <mat-error *ngIf="Password.invalid && Password.errors.minlength">
+              <span class ="small text-warning">*Password must at least 6 characters!</span>
             </mat-error>
           </td>
         </tr>
-          </table>
-        </form>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="register()" [disabled]="!regForm.valid">Register</button>
-        <span class="text-primary">Already have an account &nbsp; <a class="text-danger" [routerLink]="['/user/login']">  login </a>  &nbsp; here. </span>
-    </mat-card-actions>
-    </mat-card>
-  </div>
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input [type]="hide ? 'password' : 'text'" matInput placeholder="Repead Password" formControlName ="repeadpassword" name="repeadpassword" required>
+            <!-- <mat-icon matSuffix class="maticon">lock_open</mat-icon> -->
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-error *ngIf="Repeadpassword.invalid && Repeadpassword.errors.passwordMatch">
+            <span class ="small text-warning">*Password does not match</span>
+          </mat-error>
+        </td>
+      </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="register()" [disabled]="!regForm.valid">Register</button>
+      <span class="text-primary">Already have an account&nbsp;<a class="text-danger" [routerLink]="['/user/login']">login </a> here </span>
+  </mat-card-actions>
+  </mat-card>
 </div>
