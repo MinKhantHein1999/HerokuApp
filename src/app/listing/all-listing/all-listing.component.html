@@ -1,9 +1,31 @@
+<!-- <p>
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+  </ngb-alert>
+</p> -->
 <div class="container my-3">
+
+  <form [formGroup]="frmGroup" class="form-inline">
+    <div class="form-group mb-3 ml-auto" style="display: flex;">
+      <p class="mt-2 font-weight-bold text-primary">Search:</p>
+      <input
+        type="text"
+        id="text"
+        class="form-control ml-2"
+        formControlName="obj"
+      />
+    </div>
+  </form>
+
   <div class="row" *ngIf="listing$ | async as listings">
     <div class="col-md-4" *ngFor="let listing of listings">
       <mat-card class="example-card mb-5 text-center">
         <mat-card-content >
-          <h1> {{listing.title}}</h1>
+          <!-- <h1> {{listing.title}}</h1> -->
+          <ngb-highlight
+          [result]="listing.title"
+          [term]="frmGroup.controls['obj'].value"
+          ></ngb-highlight>
           <h4>Price : {{listing.price}} | Locality : {{listing.locality}}</h4>
         </mat-card-content>
         <mat-card-actions>

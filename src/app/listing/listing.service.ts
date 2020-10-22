@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListingService {
-  // public base_Url = 'http://localhost:8080/';
-  public base_Url = '';
+  public base_Url = 'http://localhost:8080/';
+  // public base_Url = '';
   public Options = {
     headers: new HttpHeaders()
       .set('Content-Type', 'application/json')
@@ -17,7 +17,7 @@ export class ListingService {
 
   constructor(private http$: HttpClient) {}
 
-  getAllData(): Observable<Listing> {
+  getAllData(): Observable<Listing[]> {
     return this.http$.get<any>(this.base_Url + 'api/listing');
   }
 

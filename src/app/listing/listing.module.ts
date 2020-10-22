@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddListingComponent } from './add-listing/add-listing.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AllListingComponent, DetailsComponent, AddListingComponent],
@@ -17,6 +18,7 @@ import { AddListingComponent } from './add-listing/add-listing.component';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
 })
 export class ListingModule {}

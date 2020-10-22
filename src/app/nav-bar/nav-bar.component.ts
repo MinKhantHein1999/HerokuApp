@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { UserService } from '../user/service/user.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { UserService } from '../user/service/user.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
+  @Input() frmGroup: FormGroup;
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {}
