@@ -3,10 +3,13 @@
     <strong>Warning!</strong> Better check yourself, you're not looking too good.
   </ngb-alert>
 </p> -->
-<div class="container my-3">
-
+<div class="container my-1">
   <form [formGroup]="frmGroup" class="form-inline">
-    <div class="form-group mb-3 ml-auto" style="display: flex;">
+    <mat-form-field class="ml-auto">
+      <mat-label class="text-warning">Search Item.......</mat-label>
+      <input matInput placeholder="Search item of title" formControlName="obj">
+    </mat-form-field>
+    <!-- <div class="form-group mb-3 ml-auto" style="display: flex;">
       <p class="mt-2 font-weight-bold text-primary">Search:</p>
       <input
         type="text"
@@ -14,7 +17,7 @@
         class="form-control ml-2"
         formControlName="obj"
       />
-    </div>
+    </div> -->
   </form>
 
   <div class="row" *ngIf="listing$ | async as listings">
