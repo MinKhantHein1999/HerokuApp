@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UserService implements OnInit {
-  // private base_Url = 'http://localhost:8080/';
-  public base_Url = '';
+  private base_Url = 'http://localhost:8080/';
+  // public base_Url = '';
 
   constructor(public http$: HttpClient, public router: Router) {}
 

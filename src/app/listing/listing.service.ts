@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListingService {
-  // public base_Url = 'http://localhost:8080/';
-  public base_Url = '';
+  public base_Url = 'http://localhost:8080/';
+  // public base_Url = '';
   public Options = {
     headers: new HttpHeaders()
       .set('Content-Type', 'application/json')

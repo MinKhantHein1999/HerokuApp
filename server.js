@@ -23,6 +23,7 @@ app.use ('/api/auth',appRouter);
 
 const appListing = require ('./backend/router/listingroute')
 app.use('/api/listing',appListing);
+app.use('/profile',express.static('upload/images'));
 
 app.listen(process.env.PORT || 8080,()=>{
   console.log("server is running on port 8080")

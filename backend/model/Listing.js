@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const listingSchemas = new mongoose.Schema({
+  profile_url : String,
   title: String,
   price: String,
   locality: String,

@@ -1,14 +1,37 @@
 const router = require("express").Router();
 const Listing = require ('../model/Listing');
 const verify = require("../router/verify");
+const multer = require ('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: './upload/images',
+  filename:(req, file ,cb)=>{
+      return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+  }
+})
+
+const upload = multer({
+  storage : storage
+})
+
+// router.post('/upload',upload.single('profile'),(req,res)=>{
+//   // console.log(req.file)
+//   res.json({
+//       success:1,
+//       profile_url : `http://localhost:8080/profile/${req.file.filename}`
+//   })
+//   // res.send("Getting all data")
+// })
 
 // create
-router.post("/", async (req, res) => {
+router.post("/",upload.single('profile'), async (req, res) => {
   const createlisting = new Listing({
     title: req.body.title,
     price: req.body.price,
     locality: req.body.locality,
     details: req.body.details,
+    profile_url : `http://localhost:8080/profile/${req.file.filename}`
   });
   try {
     const listingSave = await createlisting.save();
